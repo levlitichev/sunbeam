@@ -17,6 +17,8 @@ rule kraken2_classify_report:
         paired_end = "--paired" if Cfg['all']['paired_end'] else ""
     threads:
         Cfg['classify']['threads']
+    resources:
+        mem_mb = Cfg['classify']['mem_mb'] 
     shell:
         """
         kraken2 --gzip-compressed \

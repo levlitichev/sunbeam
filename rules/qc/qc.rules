@@ -48,7 +48,7 @@ rule adapter_removal_unpaired:
                 rev_adapter_str = " ".join(expand(
                     "-g {adapter}", adapter=Cfg['qc']['rev_adapters']))
             shell("""
-            cutadapt --discard-trimmed -O {overlap} \
+            cutadapt -O {overlap} \
             --cores {threads} \
             {fwd_adapter_str} {rev_adapter_str} \
             -o {params.tmp} \
@@ -86,7 +86,7 @@ rule adapter_removal_paired:
                 rev_adapter_str = " ".join(expand(
                     "-B {adapter}", adapter=Cfg['qc']['rev_adapters']))
             shell("""
-            cutadapt --discard-trimmed -O {overlap} \
+            cutadapt -O {overlap} \
             --cores {threads} \
             {fwd_adapter_str} {rev_adapter_str} \
             -o {params.r1} -p {params.r2} \

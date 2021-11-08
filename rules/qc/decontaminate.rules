@@ -28,7 +28,7 @@ rule align_to_host:
             rp = Pairs),
         index = str(Cfg['qc']['host_fp']/'{host}.fasta.amb')
     output:
-        temp(str(QC_FP/'decontam'/'intermediates'/'{host}'/'{sample}.bam'))
+        str(QC_FP/'decontam'/'intermediates'/'{host}'/'{sample}.bam')
     threads:
         Cfg['qc']['threads']
     params:

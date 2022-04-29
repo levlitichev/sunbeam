@@ -31,6 +31,8 @@ rule align_to_host:
         str(QC_FP/'decontam'/'intermediates'/'{host}'/'{sample}.bam')
     threads:
         Cfg['qc']['threads']
+    resources:
+       mem_mb=16384 #16GB 
     params:
         sam = temp(str(QC_FP/'decontam'/'intermediates'/'{host}'/'{sample}.sam')),
         index_fp = str(Cfg['qc']['host_fp'])

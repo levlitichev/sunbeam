@@ -34,6 +34,8 @@ rule adapter_removal_unpaired:
         str(QC_FP/'01_cutadapt'/'{sample}_1.fastq.gz')
     threads:
         Cfg['qc']['threads']
+    resources:
+       mem_mb=16384 #16GB 
     run:
         fwd_adapters = Cfg['qc'].get('fwd_adapters')
         rev_adapters = Cfg['qc'].get('rev_adapters')
@@ -72,6 +74,8 @@ rule adapter_removal_paired:
         gr2 = str(QC_FP/'01_cutadapt'/'{sample}_2.fastq.gz')
     threads:
         Cfg['qc']['threads']
+    resources:
+       mem_mb=16384 #16GB 
     run:
         fwd_adapters = Cfg['qc']['fwd_adapters']
         rev_adapters = Cfg['qc']['rev_adapters']
